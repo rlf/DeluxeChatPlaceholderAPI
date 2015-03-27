@@ -61,6 +61,7 @@ public class PlaceholderTestPlugin extends JavaPlugin {
 			}
 		}
 	}
+	
 
 	@Override
 	public void onDisable() {
