@@ -19,37 +19,14 @@ public class PlaceholderTestPlugin extends JavaPlugin {
 
 						/*
 						 * this method will be called any time a placeholder
-						 * %placeholdertestplugin_<identifier>% is found
+						 * %<yourplugin>_<identifier>% is found
 						 */
 						@Override
 						public String onPlaceholderRequest(Player p, String identifier) {
 
-							switch (identifier) {
-							
-							// %placeholdertestplugin_red%
-							case "red":
-								return "&c";
-								
-							// %placeholdertestplugin_white%
-							case "white":
-								return "&f";
-								
-							// %placeholdertestplugin_blue%	
-							case "blue":
-								return "&1";
-								
-							// %placeholdertestplugin_playername%	
-							case "playername":
-								return p.getName();
-								
-							// %placeholdertestplugin_uuid%	
-							case "uuid":
-								return p.getUniqueId().toString();
-								
-							// %placeholdertestplugin_flying%	
-							case "flying":
-								return p.isFlying() ? "&aYes" : "&cNo";
-								
+							if (identifier.equalsIgnoreCase("color")) {
+								//your plugin method to obtain a players chat color
+								return getChatColor(p);
 							}
 							//was not a correct identifier
 							return null;
@@ -60,6 +37,10 @@ public class PlaceholderTestPlugin extends JavaPlugin {
 				getLogger().info("DeluxeChat placeholder hook was successfully registered!");
 			}
 		}
+	}
+	
+	public String getChatColor(Player p) {
+		return "";
 	}
 	
 
